@@ -1,4 +1,5 @@
-"""entry point of the command interpreter"""
+#!/usr/bin/python3
+"""This script is for AirBnB Console"""
 import cmd
 import ast
 import shlex
@@ -11,6 +12,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
+
 
 class HBNBCommand(cmd.Cmd):
     """Beginning of the command interpreter"""
@@ -182,6 +184,20 @@ class HBNBCommand(cmd.Cmd):
             return eval("{" + new_dict + "}")
         except ValueError:
             return None
+
+    def do_count(self, args):
+        """Retrieves the number of instances of a given class."""
+        str_list = split(args)
+        if not str_list[0]:
+            print("** class name missing **")
+        elif str_list[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+        else:
+            count = [
+                k for k in storage.all() if k.startswith(
+                    str_list[0] + '.')]
+            print(len(count))
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

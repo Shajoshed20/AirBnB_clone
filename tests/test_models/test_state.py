@@ -76,7 +76,8 @@ class TestStateInstantiation(unittest.TestCase):
     def test_instantiation_with_kwargs(self):
         current_datetime = datetime.today()
         datetime_iso = current_datetime.isoformat()
-        state_instance = State(id="345", created_at=datetime_iso, updated_at=datetime_iso)
+        state_instance = State(id="345", created_at=datetime_iso,
+                               updated_at=datetime_iso)
         self.assertEqual(state_instance.id, "345")
         self.assertEqual(state_instance.created_at, current_datetime)
         self.assertEqual(state_instance.updated_at, current_datetime)
@@ -124,7 +125,8 @@ class TestStateSave(unittest.TestCase):
         self.assertLess(initial_updated_at, intermediate_updated_at)
         sleep(0.05)
         self.state_instance.save()
-        self.assertLess(intermediate_updated_at, self.state_instance.updated_at)
+        self.assertLess(intermediate_updated_at,
+                        self.state_instance.updated_at)
 
     def test_save_with_argument(self):
         with self.assertRaises(TypeError):
@@ -180,7 +182,8 @@ class TestStateToDict(unittest.TestCase):
         self.assertDictEqual(self.state_instance.to_dict(), expected_dict)
 
     def test_to_dict_differ_from_instance_dict(self):
-        self.assertNotEqual(self.state_instance.to_dict(), self.state_instance.__dict__)
+        self.assertNotEqual(self.state_instance.to_dict(),
+                            self.state_instance.__dict__)
 
     def test_to_dict_with_argument(self):
         with self.assertRaises(TypeError):

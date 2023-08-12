@@ -8,6 +8,7 @@ from console import HBNBCommand
 from io import StringIO
 from unittest.mock import patch
 
+
 class TestConsole(unittest.TestCase):
     """Tests for the console functionality."""
 
@@ -66,6 +67,7 @@ class TestConsole(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as output:
             self.console_instance.onecmd(f"destroy BaseModel {obj_id}")
             self.assertEqual("", output.getvalue().strip())
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -8,6 +8,7 @@ from datetime import datetime
 from time import sleep
 from models.amenity import Amenity
 
+
 class TestAmenityFunctionality(unittest.TestCase):
     def setUp(self):
         """Set up any resources needed for the test cases."""

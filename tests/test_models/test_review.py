@@ -61,10 +61,11 @@ class TestReview(unittest.TestCase):
         self.assertLess(review1.updated_at, review2.updated_at)
 
     def test_string_representation(self):
-        current_datetime = datetime.today()
+        current_dt = datetime.now()
         self.review_instance.id = "123456"
-        self.review_instance.created_at = self.review_instance.updated_at = current_datetime
-        current_datetime_repr = repr(current_datetime)
+        rv_inst = self.review_instance.updated_at = current_dt
+        self.review_instance.created_at = rv_inst
+        current_datetime_repr = repr(current_dt)
         review_str = self.review_instance.__str__()
         self.assertIn("[Review] (123456)", review_str)
         self.assertIn("'id': '123456'", review_str)
@@ -84,19 +85,21 @@ class TestReview(unittest.TestCase):
             self.assertEqual(value, maindict.get(key))
 
     def test_to_dict(self):
-        current_datetime = datetime.today()
+        current_dt = datetime.now()
         self.review_instance.id = "123456"
-        self.review_instance.created_at = self.review_instance.updated_at = current_datetime
+        rv_inst = self.review_instance.updated_at = current_dt
+        self.review_instance.created_at = rv_inst
         expected_dict = {
             'id': '123456',
             '__class__': 'Review',
-            'created_at': current_datetime.isoformat(),
-            'updated_at': current_datetime.isoformat(),
+            'created_at': current_dt.isoformat(),
+            'updated_at': current_dt.isoformat(),
         }
         review_dict = self.review_instance.to_dict()
         self.assertIsInstance(review_dict, dict)
         self.assertDictSubset(expected_dict, review_dict)
         self.assertNotEqual(review_dict, self.review_instance.__dict__)
+
 
 if __name__ == "__main__":
     unittest.main()

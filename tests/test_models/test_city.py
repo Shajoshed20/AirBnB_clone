@@ -8,6 +8,7 @@ from datetime import datetime
 from time import sleep
 from models.city import City
 
+
 class TestCityFunctionality(unittest.TestCase):
     def setUp(self):
         """Set up any resources needed for the test cases."""
@@ -61,6 +62,7 @@ class TestCityFunctionality(unittest.TestCase):
 
     # ... Add more tests for other functionalities ...
 
+
 class TestCitySave(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -110,6 +112,7 @@ class TestCitySave(unittest.TestCase):
         with open("file.json", "r") as f:
             self.assertIn(city_id, f.read())
 
+
 class TestCityToDict(unittest.TestCase):
     def test_to_dict_type(self):
         city = City()
@@ -157,6 +160,7 @@ class TestCityToDict(unittest.TestCase):
         city = City()
         with self.assertRaises(TypeError):
             city.to_dict(None)
+
 
 if __name__ == "__main__":
     unittest.main()
