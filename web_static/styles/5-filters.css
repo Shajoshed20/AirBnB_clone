@@ -4,9 +4,8 @@
     width: 100%;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
-    display:flex;
-    align-items:center;
-    position:relative;
+    display: inline-flex;
+    align-items: end;
 }
 
 .location,
@@ -28,9 +27,11 @@
     height: 48px;
     width: 20%;
     border-radius: 4px;
-    margin: 10px 30px;
-    float: right;
+    right: 30px;
+    position: absolute;
     border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .filters button:hover {
