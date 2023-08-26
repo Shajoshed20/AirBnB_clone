@@ -8,14 +8,6 @@
     align-items: end;
 }
 
-.location,
-.amenities {
-    height: 100%;
-    width: 25%;
-    float: left;
-
-}
-
 .location {
     border-right: 1px solid #DDDDDD;
 }
@@ -26,10 +18,9 @@
     color: #FFFFFF;
     height: 48px;
     width: 20%;
-    border-radius: 4px;
-    right: 30px;
-    position: absolute;
     border: none;
+    border-radius: 4px;
+    margin-left: 260px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
